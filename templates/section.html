@@ -30,14 +30,16 @@
     {% if paginator %}
         <ul class="pagination">
             {% if paginator.previous %}
+                {%- set prev_path = paginator.previous | replace(from=config.base_url, to="/") -%}
                 <span class="page-item page-prev">
-                    <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+                    <a href="{{ prev_path | safe }}" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
                 </span>
             {% endif %}
 
             {% if paginator.next %}
+                {%- set next_path = paginator.next | replace(from=config.base_url, to="/") -%}
                 <span class="page-item page-next">
-                    <a href={{ paginator.next }} class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+                    <a href="{{ next_path | safe }}" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
                 </span>
             {% endif %}
         </ul>

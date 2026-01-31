@@ -1,11 +1,11 @@
 <nav>
     <div class="left-nav">
         {% if config.extra.logo %}
-            <a href={{ config.base_url }} class="logo">
-                <img alt="{{ config.title }}" src="{{ get_url(path=config.extra.logo) }}" />
+            <a href="/" class="logo">
+                <img alt="{{ config.title }}" src="/{{ config.extra.logo }}" />
             </a>
         {% else %}
-            <a href={{ config.base_url }}>{{ config.title }}</a>
+            <a href="/">{{ config.title }}</a>
         {% endif %}
 
 
@@ -16,9 +16,9 @@
                 {% set link_attrs = "rel='me'" %}
             {% endif %}
             {% for social in config.extra.socials %}
-                <a {{ link_attrs | safe }} href="{{ social.url }}" class="social">
+                <a {{ link_attrs | safe }} href="{{ social.url | safe }}" class="social">
                     <img alt="{{ social.name }}"
-                         src="{{ get_url(path='icons/social/' ~ social.icon ~ '.svg') }}" />
+                         src="/icons/social/{{ social.icon }}.svg" />
                 </a>
             {% endfor %}
         </div>
@@ -26,14 +26,14 @@
 
     <div class="right-nav">
         {% for menu in config.extra.menu %}
-            <a href={{ get_url(path=menu.url) }} style="margin-right: 0.5em">{{ menu.name }}</a>
+            <a href="{{ menu.url | safe }}" style="margin-right: 0.5em">{{ menu.name }}</a>
         {% endfor %}
 
         {% if config.build_search_index %}
             <button id="search-button"
                     class="search-button"
                     title="$SHORTCUT to open search">
-                <img src="{{ get_url(path='icons/search.svg') }}"
+                <img src="/icons/search.svg"
                      alt="Search"
                      class="search-icon" />
             </button>
@@ -77,12 +77,12 @@
             <a id="dark-mode-toggle"
                onclick="toggleTheme(); event.preventDefault();"
                href="#">
-                <img src="{{ get_url(path='icons/sun.svg') }}" id="sun-icon" alt="Light" />
-                <img src="{{ get_url(path='icons/moon.svg') }}"
+                <img src="/icons/sun.svg" id="sun-icon" alt="Light" />
+                <img src="/icons/moon.svg"
                      id="moon-icon"
                      style="filter: invert(1)"
                      alt="Dark" />
-                <img src="{{ get_url(path='icons/auto.svg') }}"
+                <img src="/icons/auto.svg"
                      id="auto-icon"
                      style="filter: invert(1)"
                      alt="Auto" />

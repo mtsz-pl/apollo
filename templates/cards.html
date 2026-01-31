@@ -41,7 +41,8 @@
                                 {% set path = section.path ~ "/" ~ page.extra.local_image %}
                             {% endif %}
                             {% set image = resize_image(path=path, height=media_height, op="fit_height", format="webp") %}
-                            <img class="card-image" alt="{{ page.title }}" src="{{ image.url }}" />
+                            {%- set image_path = image.url | replace(from=config.base_url, to="/") -%}
+                            <img class="card-image" alt="{{ page.title }}" src="{{ image_path | safe }}" />
                         {% elif page.extra.remote_image %}
                             <img class="card-image"
                                  alt="{{ page.title }}"
@@ -65,9 +66,9 @@
                 <div class="card-content">
                     <h1 class="card-title">
                         {% if page.extra.link_to %}
-                            <a href={{ page.extra.link_to }}>{{ page.title }}</a>
+                            <a href="{{ page.extra.link_to }}">{{ page.title }}</a>
                         {% elif page.content %}
-                            <a href={{ page.permalink | safe }}>{{ page.title }}</a>
+                            <a href="{{ page.path | safe }}">{{ page.title }}</a>
                         {% else %}
                             {{ page.title }}
                         {% endif %}
@@ -137,14 +138,16 @@
     {% if paginator %}
         <ul class="pagination">
             {% if paginator.previous %}
+                {%- set prev_path = paginator.previous | replace(from=config.base_url, to="/") -%}
                 <span class="page-item page-prev">
-                    <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+                    <a href="{{ prev_path | safe }}" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
                 </span>
             {% endif %}
 
             {% if paginator.next %}
+                {%- set next_path = paginator.next | replace(from=config.base_url, to="/") -%}
                 <span class="page-item page-next">
-                    <a href={{ paginator.next }} class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+                    <a href="{{ next_path | safe }}" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
                 </span>
             {% endif %}
         </ul>

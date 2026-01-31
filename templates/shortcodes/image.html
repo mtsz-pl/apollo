@@ -6,12 +6,13 @@
 {% set format = format | default(value='avif') %}
 {% set quality = quality | default(value=80) %}
 {% set img = resize_image(path=path, width=width, height=height, op=op, format=format, quality=quality) %}
+{%- set img_path = img.url | replace(from=config.base_url, to="/") -%}
 
 {% set loading = loading | default(value='lazy') %}
 {% set decoding = decoding | default(value='async') %}
 {% set style = style | default(value='') %}
 <img aspect-ratio="{{ width }} / {{ height }}"
-     src="{{ img.url }}"
+     src="{{ img_path | safe }}"
      alt="{{ alt }}"
      style="{{ style }}"
      loading="{{ loading }}"

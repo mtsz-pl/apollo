@@ -12,7 +12,7 @@
                 {% elif page.extra.link_to %}
                     {% set video_link = page.extra.link_to %}
                 {% else %}
-                    {% set video_link = page.permalink | safe %}
+                    {% set video_link = page.path %}
                 {% endif %}
 
                 <a class="talk-video"
@@ -23,6 +23,7 @@
                         {% if page.extra.video.thumbnail %}
                             <!-- TODO: Add srcset -->
                             {% set image = resize_image(path=page.extra.video.thumbnail, width=640, height=360, format="webp") %}
+                            {%- set image_path = image.url | replace(from=config.base_url, to="/") -%}
                             <img class="talk-image"
                                  loading="lazy"
                                  decoding="async"
@@ -30,7 +31,7 @@
                                         (max-width: 1024px) 50vw,
                                         33vw"
                                  alt="{{ page.extra.video.thumbnail.alt | default(value='Thumbnail for the talk') }}"
-                                 src="{{ image.url }}" />
+                                 src="{{ image_path | safe }}" />
                             <div class="video-play-btn">
                                 <div class="rounded-btn">
                                     <svg width="24"
@@ -45,9 +46,10 @@
                             </div>
                         {% else %}
                             {% set image = resize_image(path='images/talks/default.webp', width=480, height=270, format="webp", quality=10) %}
+                            {%- set image_path = image.url | replace(from=config.base_url, to="/") -%}
                             <img class="talk-image"
                                  alt="Placeholder image for the talk"
-                                 src="{{ image.url }}" />
+                                 src="{{ image_path | safe }}" />
                         {% endif %}
 
                     </div>
@@ -56,11 +58,11 @@
                 <div class="talk-info">
                     <h1 class="talk-title">
                         {% if page.extra.link_to %}
-                            <a href={{ page.extra.link_to }}>{{ page.title }}</a>
+                            <a href="{{ page.extra.link_to }}">{{ page.title }}</a>
                         {% elif page.extra.video.link %}
-                            <a href={{ page.extra.video.link }}>{{ page.title }}</a>
+                            <a href="{{ page.extra.video.link }}">{{ page.title }}</a>
                         {% else %}
-                            <a href={{ page.permalink | safe }}>{{ page.title }}</a>
+                            <a href="{{ page.path | safe }}">{{ page.title }}</a>
                         {% endif %}
 
                     </h1>
@@ -130,14 +132,16 @@
     {% if paginator %}
         <ul class="pagination">
             {% if paginator.previous %}
+                {%- set prev_path = paginator.previous | replace(from=config.base_url, to="/") -%}
                 <span class="page-item page-prev">
-                    <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+                    <a href="{{ prev_path | safe }}" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
                 </span>
             {% endif %}
 
             {% if paginator.next %}
+                {%- set next_path = paginator.next | replace(from=config.base_url, to="/") -%}
                 <span class="page-item page-next">
-                    <a href={{ paginator.next }} class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+                    <a href="{{ next_path | safe }}" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
                 </span>
             {% endif %}
         </ul>
