@@ -2,7 +2,7 @@
 Unknown</name></author><link rel="alternate" type="text/html" href="https://not-matthias.github.io/apollo/posts/character-shortcodes/"/><id>https://not-matthias.github.io/apollo/posts/character-shortcodes/</id><content type="html" xml:base="https://not-matthias.github.io/apollo/posts/character-shortcodes/">&lt;p>Did you know that The oldest programming language still in use is FORTRAN which was created in 1957 by John Backus?&lt;/p>
 &lt;div class="character-note character-hooded character-comment character-right">
 &lt;div class="character-avatar">
-&lt;img src="https://not-matthias.github.io/apollo/images/characters/hooded.png"
+&lt;img src="/images/characters/hooded.png"
 alt="hooded"
 width="80"
 height="80" />
@@ -21,7 +21,7 @@ height="80" />
 &lt;/span>&lt;/code>&lt;/pre>
 &lt;div class="character-note character-hooded character-comment character-right">
 &lt;div class="character-avatar">
-&lt;img src="https://not-matthias.github.io/apollo/images/characters/hooded.png"
+&lt;img src="/images/characters/hooded.png"
 alt="hooded"
 width="80"
 height="80" />
@@ -39,7 +39,7 @@ height="80" />
 &lt;p>Good to know, thanks buddy!&lt;/p>
 &lt;div class="character-note character-hooded character-comment character-left">
 &lt;div class="character-avatar">
-&lt;img src="https://not-matthias.github.io/apollo/images/characters/hooded.png"
+&lt;img src="/images/characters/hooded.png"
 alt="hooded"
 width="80"
 height="80" />
@@ -147,7 +147,7 @@ Unknown</name></author><link rel="alternate" type="text/html" href="https://not-
 &lt;p>To use mermaid diagrams in your posts, see the example in the raw markdown code.
 https://raw.githubusercontent.com/not-matthias/apollo/refs/heads/main/content/posts/mermaid.md&lt;/p>
 &lt;h2 id="rendered-example">&lt;a class="zola-anchor" href="#rendered-example" aria-label="Anchor link for: rendered-example">Rendered Example&lt;/a>&lt;/h2>
-&lt;script src=https://not-matthias.github.io/apollo/js/mermaid.js>&lt;/script>
+&lt;script src="/js/mermaid.js">&lt;/script>
 &lt;pre class="mermaid">
 graph LR
 A[Start] --> B[Initialize]
@@ -293,7 +293,7 @@ Additionally, a search button will be displayed in the navigation bar.&lt;/p>
 &lt;/ul>
 &lt;div class="character-note character-hooded character-comment character-right">
 &lt;div class="character-avatar">
-&lt;img src="https://not-matthias.github.io/apollo/images/characters/hooded.png"
+&lt;img src="/images/characters/hooded.png"
 alt="hooded"
 width="80"
 height="80" />
@@ -306,7 +306,7 @@ height="80" />
 &lt;/div>
 &lt;div class="character-note character-hooded character-comment character-left">
 &lt;div class="character-avatar">
-&lt;img src="https://not-matthias.github.io/apollo/images/characters/hooded.png"
+&lt;img src="/images/characters/hooded.png"
 alt="hooded"
 width="80"
 height="80" />
@@ -319,7 +319,7 @@ height="80" />
 &lt;/div>
 &lt;div class="character-note character-hooded character-comment character-right">
 &lt;div class="character-avatar">
-&lt;img src="https://not-matthias.github.io/apollo/images/characters/hooded.png"
+&lt;img src="/images/characters/hooded.png"
 alt="hooded"
 width="80"
 height="80" />
